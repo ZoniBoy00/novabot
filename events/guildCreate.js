@@ -68,7 +68,7 @@ export async function execute(guild) {
       },
       {
         name: "❓ Need Help?",
-        value: "Join our [support server](https://discord.gg/novabot) for assistance.",
+        value: "Join our [support server](https://discord.gg/PAKDKeSvSK) for assistance.",
       },
     )
     .setThumbnail(guild.client.user.displayAvatarURL({ dynamic: true, size: 256 }))
