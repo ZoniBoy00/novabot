@@ -13,7 +13,7 @@ export async function execute(interaction, client) {
     title: "Pong! 🏓",
     description: `**Bot Latency:** ${latency}ms\n**API Latency:** ${Math.round(client.ws.ping)}ms`,
     color: "#00FF00",
-    footer: { text: "NovaBot Ping System" },
+    footer: { text: "NovaBot Ping System • Made with ❤️ by ZoniBoy00 (https://github.com/ZoniBoy00/novabot)" },
   })
 
   await interaction.editReply({ embeds: [pingEmbed] })
