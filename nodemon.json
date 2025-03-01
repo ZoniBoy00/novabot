@@ -1,0 +1,7 @@
+{
+  "watch": ["commands/", "events/", "utils/", "handlers/", "index.js", "config.js"],
+  "ext": "js",
+  "ignore": ["*.test.js", "*.spec.js", "node_modules/"],
+  "exec": "node index.js"
+}
+
