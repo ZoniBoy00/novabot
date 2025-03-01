@@ -63,6 +63,7 @@ export async function execute(interaction, client) {
           ? "⚠️ These commands can only be used by the bot owner."
           : getCategoryDescription(selectedCategory),
       )
+    categoryEmbed.setFooter({ text: `Made with ❤️ by [ZoniBoy00](https://github.com/ZoniBoy00/novabot)` })
 
     for (const command of commands) {
       categoryEmbed.addFields({
@@ -106,9 +107,9 @@ export async function execute(interaction, client) {
     })
   }
 
-  helpEmbed
-    .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-    .setFooter({ text: "Use /help [category] to see commands in a specific category" })
+  helpEmbed.setThumbnail(client.user.displayAvatarURL({ dynamic: true })).setFooter({
+    text: `Use /help [category] to see commands in a specific category • Made with ❤️ by ZoniBoy00 (https://github.com/ZoniBoy00/novabot)`,
+  })
 
   await interaction.reply({ embeds: [helpEmbed] })
 }
