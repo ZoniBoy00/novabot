@@ -69,7 +69,9 @@ ${commandData.options?.length ? `**Options:**\n${commandData.options.map((opt) =
       },
     ],
     color: "#FF0000",
-    footer: { text: "⚠️ These commands are powerful and should be used with caution" },
+    footer: {
+      text: `⚠️ These commands are powerful and should be used with caution • Made with ❤️ by ZoniBoy00 (https://github.com/ZoniBoy00/novabot)`,
+    },
   })
 
   await interaction.reply({ embeds: [helpEmbed], flags: ["Ephemeral"] })
