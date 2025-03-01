@@ -78,7 +78,7 @@ export async function execute(interaction) {
 \`/richest\` - View wealthiest users`,
       },
     )
-    .setFooter({ text: "Tip: Use /help [category] for detailed command information" })
+    .setFooter({ text: `Made with ❤️ by [ZoniBoy00](https://github.com/ZoniBoy00/novabot)` })
 
   // Add owner commands section if the user is the owner
   if (isOwnerUser) {
@@ -157,7 +157,7 @@ export async function execute(interaction) {
 • Anti-cheat measures`,
       },
     )
-    .setFooter({ text: "NovaBot • Made with ❤️" })
+    .setFooter({ text: `Made with ❤️ by [ZoniBoy00](https://github.com/ZoniBoy00/novabot)` })
 
   const setupEmbed = new EmbedBuilder()
     .setColor(config.embedColor)
@@ -195,7 +195,7 @@ export async function execute(interaction) {
 • Commands use Discord's slash system`,
       },
     )
-    .setFooter({ text: "Need more help? Use /help for specific commands" })
+    .setFooter({ text: `Made with ❤️ by ZoniBoy00 (https://github.com/ZoniBoy00/novabot)` })
 
   // Send all embeds
   await interaction.reply({ embeds: [mainEmbed, featuresEmbed, setupEmbed] })
