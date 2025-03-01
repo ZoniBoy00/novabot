@@ -25,7 +25,6 @@ A feature-rich Discord bot with economy, leveling, moderation, and utility featu
 - [Commands](#-commands)
 - [Known Issues](#-known-issues)
 - [License](#-license)
-- [Buy Me A Coffee](#-buy-me-a-coffee)
 
 ## 📦 Requirements
 
