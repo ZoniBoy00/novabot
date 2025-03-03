@@ -29,36 +29,77 @@ export async function execute(interaction) {
 \`/nowplaying\` - Show current song`,
       },
       {
-        name: "🛡️ Moderation",
+        name: "🛡️ Moderation & Logging",
         value: `\`/ban\` - Ban a user
 \`/kick\` - Kick a user
 \`/mute\` - Timeout a user
 \`/warn\` - Warn a user
 \`/clear\` - Clear messages
-\`/userinfo\` - View user details`,
+\`/userinfo\` - View user details
+
+**Log Channels:**
+• mod-logs - Moderation actions
+• message-logs - Message edits/deletions
+• server-logs - Server changes
+• join-logs - Member join/leave
+• voice-logs - Voice activity
+• member-logs - Member updates`,
       },
       {
-        name: "🔧 Utility",
-        value: `\`/help\` - Show commands by category
-\`/ping\` - Check bot latency
-\`/server-info\` - Server information
-\`/stats\` - Bot statistics
-\`/embed\` - Create embedded messages
-\`/guide\` - Show this guide`,
+        name: "🎫 Ticket System",
+        value: `• Create support tickets
+• Automatic ticket channels
+• Ticket transcripts
+• Ticket categories
+• Staff management
+• Ticket statistics`,
+      },
+      {
+        name: "🎭 Reaction Roles",
+        value: `• Button-based role assignment
+• Multiple role configurations
+• Custom role messages
+• Role categories
+• Toggle roles
+• Role statistics`,
+      },
+      {
+        name: "👋 Welcome System",
+        value: `• Custom welcome messages
+• Welcome images
+• Goodbye messages
+• Member statistics
+• Join/leave tracking
+• Server milestones`,
+      },
+      {
+        name: "🛡️ Auto-Moderation",
+        value: `• Spam protection
+• Mention limits
+• Invite link filtering
+• Duplicate message detection
+• Word blacklisting
+• Raid protection`,
       },
       {
         name: "⭐ Level System",
         value: `\`/rank\` - Check your or another user's rank
 \`/leaderboard\` - View the XP leaderboard
 • Earn XP by chatting
-• Level up and compete with others`,
+• Level up and compete with others
+• Custom level roles
+• Activity tracking
+• Voice XP
+• Weekly rankings`,
       },
       {
         name: "💹 Cryptocurrency",
         value: `\`/crypto\` - Check cryptocurrency prices
 • Real-time price data
 • Multiple currencies (USD/EUR/GBP)
-• 24h price changes`,
+• Price alerts
+• Market statistics
+• Trading volume`,
       },
       {
         name: "💰 Economy & Games",
@@ -78,7 +119,7 @@ export async function execute(interaction) {
 \`/richest\` - View wealthiest users`,
       },
     )
-    .setFooter({ text: `Made with ❤️ by [ZoniBoy00](https://github.com/ZoniBoy00/novabot)` })
+    .setFooter({ text: `Made with ❤️ by ZoniBoy00 (https://github.com/ZoniBoy00/novabot)` })
 
   // Add owner commands section if the user is the owner
   if (isOwnerUser) {
@@ -95,87 +136,35 @@ export async function execute(interaction) {
     })
   }
 
-  const featuresEmbed = new EmbedBuilder()
-    .setColor(config.embedColor)
-    .setTitle("🌟 Features & Tips")
-    .addFields(
-      {
-        name: "🎵 Music Features",
-        value: `• Supports YouTube and Spotify
-• Volume control and seeking
-• Queue management and shuffling
-• Loop modes (song/queue)
-• High-quality playback`,
-      },
-      {
-        name: "🛡️ Moderation Features",
-        value: `• Detailed logging system
-• Customizable timeouts
-• Warning system
-• Bulk message deletion
-• User tracking`,
-      },
-      {
-        name: "⚙️ General Features",
-        value: `• Slash command support
-• Custom embed creation
-• Server statistics
-• Real-time status updates
-• Automatic error handling`,
-      },
-      {
-        name: "💡 Tips",
-        value: `• Use \`/help [category]\` for detailed command info
-• Check \`/stats\` for bot status
-• Moderators can use \`/embed\` for announcements
-• Music commands work in any voice channel
-• Some commands have additional options`,
-      },
-      {
-        name: "⭐ Level System Features",
-        value: `• Automatic XP gain from chatting
-• Level-up notifications
-• XP cooldown system
-• Server-specific rankings
-• Detailed progress tracking`,
-      },
-      {
-        name: "💹 Crypto Features",
-        value: `• Real-time cryptocurrency prices
-• Multiple currency support
-• Market cap information
-• 24-hour price changes
-• Powered by CoinGecko API`,
-      },
-      {
-        name: "💰 Economy Features",
-        value: `• Daily rewards system
-• Multiple ways to earn
-• Casino games with fair odds
-• Player interaction
-• Leaderboard system
-• Anti-cheat measures`,
-      },
-    )
-    .setFooter({ text: `Made with ❤️ by [ZoniBoy00](https://github.com/ZoniBoy00/novabot)` })
-
   const setupEmbed = new EmbedBuilder()
     .setColor(config.embedColor)
     .setTitle("🔧 Setup Guide")
     .addFields(
       {
-        name: "🎵 Music Setup",
-        value: `1. Join a voice channel
-2. Use \`/play\` with a song name or URL
-3. Adjust volume with \`/volume\`
-4. Manage queue with \`/queue\``,
+        name: "📝 Initial Setup",
+        value: `1. Ensure bot has proper permissions
+2. Log channels will be created automatically
+3. Set up moderator roles in your server
+4. Configure welcome messages
+5. Set up reaction roles
+6. Configure auto-moderation`,
       },
       {
-        name: "🛡️ Moderation Setup",
-        value: `1. Ensure bot has proper permissions
-2. Mod-logs channel will be created automatically
-3. Set up moderator roles in your server
-4. Test commands with low-risk actions first`,
+        name: "🎫 Ticket System Setup",
+        value: `1. Create a ticket panel using \`/ticket-setup\`
+2. Configure ticket categories
+3. Set support team roles
+4. Customize ticket messages
+5. Set up ticket logs`,
+      },
+      {
+        name: "🛡️ Auto-Mod Setup",
+        value: `1. Configure spam protection
+2. Set mention limits
+3. Add filtered words
+4. Set invite link permissions
+5. Configure raid protection
+6. Set punishment actions`,
       },
       {
         name: "📝 Permissions Needed",
@@ -184,20 +173,14 @@ export async function execute(interaction) {
 • Manage Channels
 • Connect/Speak (for music)
 • View Audit Log
-• Send Messages/Embeds`,
-      },
-      {
-        name: "⚠️ Important Notes",
-        value: `• Keep bot role above managed roles
-• Some commands require specific permissions
-• Mod-logs are server-specific
-• Music works in any voice channel
-• Commands use Discord's slash system`,
+• Send Messages/Embeds
+• Manage Roles
+• Create Public/Private Threads`,
       },
     )
     .setFooter({ text: `Made with ❤️ by ZoniBoy00 (https://github.com/ZoniBoy00/novabot)` })
 
   // Send all embeds
-  await interaction.reply({ embeds: [mainEmbed, featuresEmbed, setupEmbed] })
+  await interaction.reply({ embeds: [mainEmbed, setupEmbed] })
 }
 

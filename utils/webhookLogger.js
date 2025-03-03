@@ -8,7 +8,7 @@ let webhookErrorLogged = false
  * Initialize the webhook client
  */
 export function initWebhook() {
-  if (config.logWebhookUrl && config.logWebhookUrl !== "your_discord_webhook_url") {
+  if (config.logWebhookUrl && config.logWebhookUrl !== "https://discordapp.com/api/webhooks/1345126379125215293/rlm-40j6zdH_9dRFVtCqam0SglUHmnMZOZJGr9PTKr9fSxAh3BeKS9dvXGUP3TJ5vXA9") {
     try {
       webhookClient = new WebhookClient({ url: config.logWebhookUrl })
     } catch (error) {

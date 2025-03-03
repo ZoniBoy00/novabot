@@ -5,34 +5,39 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-      "start": "node index.js",
-      "dev": "nodemon --config nodemon.json",
-      "deploy": "node deploy-commands.js"
+        "start": "node index.js",
+        "dev": "nodemon --config nodemon.json",
+        "deploy": "node deploy-commands.js"
     },
-    "keywords": ["discord", "bot", "moderation", "music", "discord.js"],
+    "keywords": [
+        "discord",
+        "bot",
+        "moderation",
+        "music",
+        "discord.js"
+    ],
     "author": "",
     "license": "MIT",
     "dependencies": {
-      "@discordjs/voice": "^0.16.1",
-      "@discordjs/opus": "^0.9.0",
-      "discord.js": "^14.14.1",
-      "dotenv": "^16.3.1",
-      "libsodium-wrappers": "^0.7.13",
-      "mongoose": "^8.1.0",
-      "play-dl": "^1.9.7",
-      "spotify-web-api-node": "^5.0.2",
-      "opusscript": "^0.0.8",
-      "lru-cache": "^10.1.0"
+        "@discordjs/opus": "^0.9.0",
+        "@discordjs/voice": "^0.16.1",
+        "canvas": "^3.1.0",
+        "discord.js": "^14.14.1",
+        "dotenv": "^16.3.1",
+        "libsodium-wrappers": "^0.7.13",
+        "lru-cache": "^10.1.0",
+        "mongoose": "^8.1.0",
+        "opusscript": "^0.0.8",
+        "play-dl": "^1.9.7",
+        "spotify-web-api-node": "^5.0.2"
     },
     "devDependencies": {
-      "nodemon": "^3.0.2"
+        "nodemon": "^3.0.2"
     },
     "engines": {
-      "node": ">=16.9.0"
+        "node": ">=16.9.0"
     },
     "overrides": {
-      "@discordjs/voice": "^0.16.1"
+        "@discordjs/voice": "^0.16.1"
     }
-  }
-  
-  
+}

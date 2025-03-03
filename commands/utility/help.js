@@ -19,6 +19,9 @@ export const data = new SlashCommandBuilder()
         { name: "🔧 Utility", value: "utility" },
         { name: "💰 Economy", value: "economy" },
         { name: "⭐ Levels", value: "levels" },
+        { name: "🎫 Tickets", value: "tickets" },
+        { name: "🎭 Reaction Roles", value: "roles" },
+        { name: "👋 Welcome", value: "welcome" },
         { name: "👑 Owner", value: "owner" },
       ),
   )
@@ -58,12 +61,7 @@ export async function execute(interaction, client) {
     const categoryEmbed = new EmbedBuilder()
       .setColor(config.embedColor)
       .setTitle(`${getCategoryEmoji(selectedCategory)} ${capitalizeFirstLetter(selectedCategory)} Commands`)
-      .setDescription(
-        selectedCategory === "owner"
-          ? "⚠️ These commands can only be used by the bot owner."
-          : getCategoryDescription(selectedCategory),
-      )
-    categoryEmbed.setFooter({ text: `Made with ❤️ by [ZoniBoy00](https://github.com/ZoniBoy00/novabot)` })
+      .setDescription(getCategoryDescription(selectedCategory))
 
     for (const command of commands) {
       categoryEmbed.addFields({
@@ -73,6 +71,10 @@ export async function execute(interaction, client) {
         }`,
       })
     }
+
+    categoryEmbed.setFooter({
+      text: `Use /help for an overview of all categories • Made with ❤️ by ZoniBoy00`,
+    })
 
     return interaction.reply({
       embeds: [categoryEmbed],
@@ -107,9 +109,17 @@ export async function execute(interaction, client) {
     })
   }
 
-  helpEmbed.setThumbnail(client.user.displayAvatarURL({ dynamic: true })).setFooter({
-    text: `Use /help [category] to see commands in a specific category • Made with ❤️ by ZoniBoy00 (https://github.com/ZoniBoy00/novabot)`,
-  })
+  helpEmbed
+    .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
+    .addFields({
+      name: "📚 Quick Links",
+      value: `• Use \`/guide\` for a detailed setup guide
+• Use \`/stats\` to view bot statistics
+• Join our support server for help`,
+    })
+    .setFooter({
+      text: `Use /help [category] to see commands in a specific category • Made with ❤️ by ZoniBoy00`,
+    })
 
   await interaction.reply({ embeds: [helpEmbed] })
 }
@@ -121,6 +131,9 @@ function getCategoryEmoji(category) {
     utility: "🔧",
     economy: "💰",
     levels: "⭐",
+    tickets: "🎫",
+    roles: "🎭",
+    welcome: "👋",
     owner: "👑",
   }
   return emojis[category] || "❓"
@@ -129,11 +142,14 @@ function getCategoryEmoji(category) {
 function getCategoryDescription(category) {
   const descriptions = {
     music:
-      "Play and manage music from YouTube and Spotify. Use /play to start, and control playback with /pause, /resume, /skip, and more.",
-    moderation: "Manage and moderate your server and its members.",
-    utility: "General utility commands for server management.",
+      "Play and manage music from YouTube and Spotify. Use /play to start, and control playback with various commands.",
+    moderation: "Manage and moderate your server with advanced logging and auto-moderation features.",
+    utility: "General utility commands for server management and information.",
     economy: "Earn money through work, businesses, and games. Build your empire!",
-    levels: "Level up and compete with other members.",
+    levels: "Level up and compete with other members through chat and voice activity.",
+    tickets: "Create and manage support tickets with advanced features.",
+    roles: "Set up self-assignable roles with buttons and menus.",
+    welcome: "Configure welcome messages, images, and member tracking.",
     owner: "Special commands for the bot owner.",
   }
   return descriptions[category] || "Use slash commands by typing `/` and selecting a command from the menu."
